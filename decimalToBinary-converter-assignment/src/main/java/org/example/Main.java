@@ -16,6 +16,11 @@ public class Main {
 
     public static void integerToBinary(int num) {
         System.out.println("Before recursion: n = " + num);
+        if (num == 0) {
+            System.out.println("idk done");
+            return;
+        }
+        integerToBinary(num/2);
 
     }
 }
