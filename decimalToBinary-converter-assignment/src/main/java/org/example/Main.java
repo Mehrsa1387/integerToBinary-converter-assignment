@@ -18,7 +18,9 @@ public class Main {
 
         System.out.println("Enter a binary number: ");
         String binaryNum = input.nextLine();
-        binaryToInteger(binaryNum);
+
+        int decimal = binaryToInteger(binaryNum);
+        System.out.println(decimal);
     }
 
 
@@ -34,13 +36,15 @@ public class Main {
         System.out.println("After recursion: n = " + num + ", remainder = " + (num % 2));
     }
 
-    public static void binaryToInteger(String binary) {
-        char[] numbers = binary.toCharArray();
-        int sum = 0;
-        for (int i = numbers.length-1; i>=0; i--) {
-            int digit = Character.getNumericValue(numbers[i]);
-            sum += digit * (int)Math.pow(2, numbers.length - 1 - i);
-            }
-        System.out.println(sum);
+    public static int binaryToInteger(String binary) {
+        if (binary.length() == 0) {
+            return 0;
+        }
+
+        int digit = Character.getNumericValue(binary.charAt(0));
+
+        return digit * (int) Math.pow(2, binary.length() - 1)
+                + binaryToInteger(binary.substring(1));
     }
+
 }
