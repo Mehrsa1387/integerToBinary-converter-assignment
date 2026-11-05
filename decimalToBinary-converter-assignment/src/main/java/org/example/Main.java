@@ -15,6 +15,7 @@ public class Main {
 
 
     public static void integerToBinary(int num) {
-        
+        System.out.println("Before recursion: n = " + num);
+
     }
 }
